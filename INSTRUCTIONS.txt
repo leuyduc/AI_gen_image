@@ -23,7 +23,7 @@ Bạn có thể sử dụng các nhà cung cấp API khác nhau:
 
 USING THE APPLICATION:
 ---------------------
-Ứng dụng có hai tab chính:
+Ứng dụng có ba tab chính:
 
 1. GENERATE:
    - Nhập prompt vào ô văn bản
@@ -31,7 +31,15 @@ USING THE APPLICATION:
    - Nhấn "Generate Image"
    - Hình ảnh được tạo sẽ tự động lưu và hiển thị trong tab History
 
-2. HISTORY:
+2. EDIT:
+   - Tải ảnh bằng nút "Load Image"
+   - Sử dụng công cụ crop để chọn phần ảnh cần cắt
+   - Sử dụng nút "Rotate Left/Right" để xoay ảnh
+   - Sử dụng nút "Flip Horizontal/Vertical" để phản chiếu ảnh 
+   - Sử dụng nút Undo/Redo để hoàn tác/làm lại thao tác
+   - Nhấn "Save Image" khi hoàn thành
+
+3. HISTORY:
    - Duyệt qua lịch sử tạo và chỉnh sửa ảnh
    - Sử dụng thanh tìm kiếm để tìm prompt cụ thể
    - Nhấn "Open" để xem ảnh, "Edit" để chỉnh sửa, hoặc "Delete" để xóa khỏi lịch sử

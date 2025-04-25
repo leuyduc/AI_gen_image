@@ -6,6 +6,7 @@
 
 - Tạo hình ảnh từ văn bản mô tả (prompt)
 - Lưu trữ và quản lý lịch sử tạo hình ảnh
+- Chỉnh sửa ảnh với các tính năng: cắt ảnh (crop), xoay ảnh và phản chiếu
 - Hỗ trợ nhiều API khác nhau: OpenAI (DALL-E), Stability AI, Gemini
 - Giao diện người dùng thân thiện với chế độ tối
 - Lưu trữ dữ liệu người dùng trong thư mục App_Data
@@ -50,7 +51,12 @@ AI_Image_Generator/
 3. Tại tab "Generate", nhập prompt mô tả hình ảnh bạn muốn tạo
 4. Chọn kích thước hình ảnh và nhấn "Generate" để tạo hình ảnh
 5. Hình ảnh được tạo sẽ tự động lưu và hiển thị
-6. Xem lịch sử các hình ảnh đã tạo tại tab "History"
+6. Tại tab "Edit", bạn có thể tải ảnh lên và chỉnh sửa với các công cụ:
+   - Crop: Cắt vùng ảnh mong muốn
+   - Rotate: Xoay ảnh 90° sang trái hoặc phải
+   - Flip: Phản chiếu ảnh theo chiều ngang hoặc dọc
+   - Undo/Redo: Hoàn tác hoặc làm lại thao tác chỉnh sửa
+7. Xem lịch sử các hình ảnh đã tạo tại tab "History"
 
 ## Lưu ý
 
@@ -76,11 +82,13 @@ AI_Image_Generator/
 AI_Image_Generator/
 ├── core/
 │   ├── api_client.py      # gọi AI, logic retry
+│   ├── image_editor.py    # xử lý chỉnh sửa ảnh (crop, rotate, flip)
 │   ├── db.py              # CRUD & tìm kiếm SQLite
 │   └── settings.py        # quản lý config.json & đường dẫn
 ├── ui/
 │   ├── main_window.py     # cửa sổ chính + thanh điều hướng
 │   ├── generate_tab.py    # tab tạo ảnh từ prompt
+│   ├── edit_tab.py        # tab chỉnh sửa ảnh
 │   ├── history_tab.py     # tab hiển thị lịch sử + tìm kiếm
 │   └── settings_dialog.py # hộp thoại cài đặt API
 ├── resources/

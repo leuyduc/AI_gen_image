@@ -6,6 +6,7 @@ import customtkinter as ctk
 
 from ui.generate_tab import GenerateTab
 from ui.history_tab import HistoryTab
+from ui.edit_tab import EditTab
 from ui.settings_dialog import APISettingsDialog
 from core.settings import DARK_MODE, DEFAULT_FONT, API_PROVIDER, APP_CONFIG, save_setting
 
@@ -59,7 +60,8 @@ class MainWindow(ctk.CTk):
         
         # Create tab buttons
         self.generate_btn = self._create_tab_button("Generate", 0, lambda: self.show_tab("generate"))
-        self.history_btn = self._create_tab_button("History", 1, lambda: self.show_tab("history"))
+        self.edit_btn = self._create_tab_button("Edit", 1, lambda: self.show_tab("edit"))
+        self.history_btn = self._create_tab_button("History", 2, lambda: self.show_tab("history"))
 
         # Create settings button on the right
         self.settings_btn = ctk.CTkButton(
@@ -95,6 +97,7 @@ class MainWindow(ctk.CTk):
         # Create tabs
         self.tabs = {
             "generate": GenerateTab(self.content_frame, self),
+            "edit": EditTab(self.content_frame, self),
             "history": HistoryTab(self.content_frame, self)
         }
         
@@ -151,10 +154,14 @@ class MainWindow(ctk.CTk):
             
             # 2. Cập nhật nút tab (dựa vào tab hiện tại)
             active_tab = self.current_tab
-            if hasattr(self, "generate_btn") and hasattr(self, "history_btn"):
+            if hasattr(self, "generate_btn") and hasattr(self, "edit_btn") and hasattr(self, "history_btn"):
                 self.generate_btn.configure(
                     fg_color=self.colors["blue" if active_tab == "generate" else "gray"][mode_key],
                     hover_color=self.colors["blue_hover" if active_tab == "generate" else "gray_hover"][mode_key]
+                )
+                self.edit_btn.configure(
+                    fg_color=self.colors["blue" if active_tab == "edit" else "gray"][mode_key],
+                    hover_color=self.colors["blue_hover" if active_tab == "edit" else "gray_hover"][mode_key]
                 )
                 self.history_btn.configure(
                     fg_color=self.colors["blue" if active_tab == "history" else "gray"][mode_key],
