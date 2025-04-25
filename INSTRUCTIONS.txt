@@ -1,0 +1,70 @@
+======================================
+        AI IMAGE GENERATOR
+======================================
+
+SETUP:
+------
+Cấu hình API được lưu trữ tự động và dễ dàng:
+
+- Click vào nút "API Settings" ở góc trên bên phải ứng dụng
+- Chọn nhà cung cấp API từ dropdown
+- Nhập API key của bạn
+- Bật/tắt chế độ tối (Dark Mode) tùy thích
+- Nhấn "Save" để lưu cài đặt
+
+Cấu hình được lưu tự động vào file: config.json
+
+API PROVIDERS:
+-------------
+Bạn có thể sử dụng các nhà cung cấp API khác nhau:
+- OpenAI DALL-E: Chọn API_PROVIDER=openai và lấy key từ https://platform.openai.com/api-keys
+- Stability AI: Chọn API_PROVIDER=stability và lấy key từ https://platform.stability.ai/
+- Google Gemini: Chọn API_PROVIDER=gemini và lấy key từ https://aistudio.google.com/apikey
+
+USING THE APPLICATION:
+---------------------
+Ứng dụng có hai tab chính:
+
+1. GENERATE:
+   - Nhập prompt vào ô văn bản
+   - Chọn kích thước ảnh từ dropdown
+   - Nhấn "Generate Image"
+   - Hình ảnh được tạo sẽ tự động lưu và hiển thị trong tab History
+
+2. HISTORY:
+   - Duyệt qua lịch sử tạo và chỉnh sửa ảnh
+   - Sử dụng thanh tìm kiếm để tìm prompt cụ thể
+   - Nhấn "Open" để xem ảnh, "Edit" để chỉnh sửa, hoặc "Delete" để xóa khỏi lịch sử
+
+STORAGE LOCATIONS:
+-----------------
+- Ảnh được lưu vào: ~/AI_Image_Generator/App_Data/thu_muc (định dạng yyyy-mm-dd)
+- Cơ sở dữ liệu lịch sử được lưu tại: ~/AI_Image_Generator/App_Data/history.db
+- Cấu hình ứng dụng được lưu tại: ~/AI_Image_Generator/App_Data/config.json
+
+TROUBLESHOOTING:
+--------------
+- Nếu việc tạo ảnh thất bại, kiểm tra API key của bạn xem có chính xác và đủ quota không
+- Đối với các vấn đề khác, hãy thử chạy lại ứng dụng hoặc kiểm tra mã nguồn gốc
+
+CREDITS:
+-------
+Ứng dụng này được tạo ra như một trình tạo ảnh AI desktop với customtkinter.
+Nó sử dụng các API khác nhau để tạo ảnh từ các nhà cung cấp AI 
+
+File cốt lõi
+main.py - File khởi động chính, điểm vào của ứng dụng
+core/settings.py - Quản lý cấu hình và thiết lập từ file config.json
+core/api_client.py - Xử lý kết nối đến các API tạo ảnh (OpenAI, Stability, Gemini)
+core/db.py - Quản lý cơ sở dữ liệu SQLite, lưu lịch sử sinh ảnh
+UI
+ui/main_window.py - Cửa sổ chính của ứng dụng với thanh tab và điều hướng
+ui/generate_tab.py - Tab tạo ảnh từ text prompt
+ui/history_tab.py - Tab hiển thị lịch sử ảnh đã tạo
+ui/settings_dialog.py - Hộp thoại cấu hình API provider và key
+Tài nguyên
+assets/icon.ico - Biểu tượng ứng dụng
+INSTRUCTIONS.txt - Hướng dẫn sử dụng cho người dùng
+requirements.txt - Danh sách thư viện cần thiết để cài đặt
+readme.md - Đã có INSTRUCTIONS.txt cho người dùng, file này dùng cho nhà phát triển
+build/ và dist/ - Sử dụng cho pyinstaller

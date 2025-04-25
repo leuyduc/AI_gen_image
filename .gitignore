@@ -1,0 +1,29 @@
+# Build and distribution folders
+build/
+dist/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.venv/
+venv/
+ENV/
+
+# IDE specific files
+.idea/
+.vscode/
+*.sublime-*
+
+# Database and user data files created during runtime
+*.db
+App_Data/
+
+# Log files
+*.log
+
+# System files
+.DS_Store
+Thumbs.db 
